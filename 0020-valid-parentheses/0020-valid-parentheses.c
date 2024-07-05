@@ -8,19 +8,9 @@ bool isValid(char* s) {
         else{
             if(top == -1)
                 return false;
-                
-            if(s[i] == ')'){
-                if(stack[top--] != '(')
+
+            if((s[i] == ')' && stack[top--] != '(') || (s[i] == '}' && stack[top--] != '{') || (s[i] == ']' && stack[top--] != '['))
                     return false;
-            }
-            else if(s[i] == '}'){
-                if(stack[top--] != '{')
-                    return false;
-            }
-            else if(s[i] == ']'){
-                if(stack[top--] != '[')
-                    return false;
-            }
         }
     }
     if(top > -1)
